@@ -1,0 +1,20 @@
+{% extends 'parties/base.html' %}
+{% block title %}page d'inscription {% endblock %}
+
+{% block contenu %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3 ">
+                <div class="border p-3 gb-white">
+                    <h3 class="h-md-250">page d'inscription</h3>
+                    <hr>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{form}}
+                        <input type="submit" class="btn btn-success">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock%}

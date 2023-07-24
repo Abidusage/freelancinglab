@@ -1,0 +1,49 @@
+{% extends 'parties/base.html' %}
+{% block title %}connexion{% endblock %}
+
+{% block contenu %}
+    <div class="container">
+        <div class="row my-4">
+
+        </div>
+        <div class="col-md-8 offset-md-3">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        modification 
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{user.Profile.image.url}}" alt="">
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <span class="h4">Profile information </span><a href="">Edit</a>
+                                <hr>
+                            </div>
+                            
+                                <table class="table bg-white">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Nom</th>
+                                            <td>{{user.username}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Email</th>
+                                            <td> {{user.email}} </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">phone</th>
+                                            <td> {{ user.Profile.phone }} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
