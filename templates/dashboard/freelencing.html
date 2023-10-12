@@ -1,61 +1,30 @@
 {% extends 'parties/base.html' %}
-{% block title %}freelencing {% endblock %}
-
+{% block title %}freelencers {% endblock %}
 {% block contenu %}
-<br><br><br>
-<div class="container marketing">
-    <!-- Three columns of text below the carousel -->
-    <div class="row">
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-        <h2>Name of The User</h2>
-        <p>Description of the user </p>
-        <p><a class="btn btn-secondary" href="#">voir plus</a></p>
+<div class="container mt-5">
+  <div class="row mb-3">
+    {% for worker in workers %}
+    <div class="col-md-3 mt-5 ml-3">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col flex-column position-static">
+          <div class="col-md-4">
+            <img style="border-radius: 100%;" class="img-thumbnail h-md-250 offset-md-11 mt-3 " src="{{ worker.profile.photo.url }}" alt="ima">
+          </div>
+          <h4 class="d-inline-block mb-2 text-success">{{worker.username}} </h4>
+          <h6 class="mb-0">{{ worker.profile.technologie}}</h6>
+          <hr>
+          <p class="mb-auto">{{worker.profile.apropos}}</p>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-whatsapp"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <a href="{% url 'voir_plus' worker.id %}" class="btn btn-primary">voir_plus</a>
+        </div>
+       
       </div>
-
-
-      <!-- other description -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h2>Name of The User</h2>
-        <p>Description of the user </p>
-        <p><a class="btn btn-secondary" href="#">voir plus</a></p>
-      </div>
-
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h2>Name of The User</h2>
-        <p>Description of the user </p>
-        <p><a class="btn btn-secondary" href="#">voir plus</a></p>
-      </div>
-
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h2>Name of The User</h2>
-        <p>Description of the user </p>
-        <p><a class="btn btn-secondary" href="#">voir plus</a></p>
-      </div>
-
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h2>Name of The User</h2>
-        <p>Description of the user </p>
-        <p><a class="btn btn-secondary" href="#">voir plus</a></p>
-      </div>
-
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h2>Name of The User</h2>
-        <p>Description of the user </p>
-        <p><a class="btn btn-secondary" href="#">voir plus</a></p>
-      </div>
+      
     </div>
-
-    
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

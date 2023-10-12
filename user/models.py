@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.core.validators import FileExtensionValidator
 # Create your models here.
 technologie =(
     ('HTML et CSS', 'HTML et CSS'),
@@ -83,9 +83,14 @@ technologie =(
 )
 class Profile(models.Model):
     staff = models.OneToOneField(User, on_delete=models.CASCADE, null = True)
-    phone = models.CharField(max_length=12, null=True)
-    addresse = models.CharField(max_length=15, null=True)
-    technologie = models.CharField(max_length=200, choices=technologie, null=True)
-    photo = models.ImageField(default='avatar.jpg', upload_to='Profile_Images')
+    whatsApp = models.CharField(max_length=12, null=True, unique=True)
+    addresse = models.CharField(max_length=200, null=True)
+    technologie = models.CharField(max_length=50, choices=technologie, null=True)
+    lien_facebook = models.CharField(max_length=50, null=True, unique=True)
+    lien_github = models.CharField(max_length=20, null=True, unique=True)
+    discord = models.CharField(max_length=50, null=True, unique=True)
+    upwork = models.CharField(max_length=100, null=True)
+    apropos = models.TextField(null=True)
+    photo = models.ImageField(default='avatar.jpg', upload_to='Profile_Images', validators=[FileExtensionValidator(['jpg', 'png'])])
     def __str__(self):
-        return f'{self.staff} {self.phone}'
+        return f'{self.staff.username}-Profile'

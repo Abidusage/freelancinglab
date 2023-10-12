@@ -1,16 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 # Create your views here.
 
 
 def freelencing(request):
-    return render(request, 'dashboard/freelencing.html')
+    workers = User.objects.all()
+    context ={
+        'workers': workers
+    }
+    return render(request, 'dashboard/freelencing.html', context)
 
-def resource(request):
-    return render(request, "dashboard/resource.html")
-
-
-@login_required(login_url='login')
-def dashboard(request):
-    return render(request, "dashboard/dashboard.html")
+def voir_plus(request, pk):
+    workers = User.objects.get(id=pk)
+    context = {
+        'workers': workers,
+    }
+    return render(request, 'dashboard/voir_plus.html', context)

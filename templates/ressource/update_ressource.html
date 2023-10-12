@@ -1,0 +1,22 @@
+{% extends 'parties/base.html' %}
+{% block title %}Modifier_ressource {% endblock %}
+{% load crispy_forms_tags %}
+{% block contenu %}
+<br>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                <div class="border bg-white p-3">
+                    <h3>Modifier un ressource</h3>
+                    <hr>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <a class="btn btn-secondary" href="{% url 'ajouter' %}">Anuller</a>
+                        <input type="submit" class="btn btn-info" value="Modifier">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}

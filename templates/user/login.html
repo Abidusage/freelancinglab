@@ -1,20 +1,35 @@
 {% extends 'parties/base.html' %}
 {% block title %}connexion{% endblock %}
-
+{% load crispy_forms_tags %}
 {% block contenu %}
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-md-6 offset-md-3">
-                <div class="border gb-white p-3">
-                    <h3>login</h3>
-                    <hr>
-                    <form action="" method="POST">
+<div class="cover"><div class="container">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-5 offset-md-6">
+            <div class="card my-3 shadow">
+                <div class="card-body">
+                    <h3 class="h-md-250 offset-md-4">login</h3>
+                    {% for message in messages %}
+                        {% if message %}
+                        <div class="alert alert-primary{{message.tag}}">
+                            {{message}}
+                        </div>
+                        {% endif%}
+                    {% endfor%}
+                    <form  method="post">
                         {%csrf_token%}
                         {{form}}
-                        <input type="submit" class=" btn btn-success">
+                        <input type="submit" value="Connexion" class="btn btn-primary btn-block">
                     </form>
+                    <hr>
+                    <a class="mx-4" href="{% url 'password_reset' %}">Forget Password</a>
                 </div>
+                
+                <a class="btn btn-info btn-block" href="{% url 'register' %}">Create An Account</a>
+                
             </div>
         </div>
     </div>
+</div>
+</div>
+
 {% endblock%}
