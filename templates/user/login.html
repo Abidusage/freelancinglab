@@ -1,6 +1,6 @@
 {% extends 'parties/base.html' %}
 {% block title %}connexion{% endblock %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
 {% block contenu %}
 <div class="cover"><div class="container">
     <div class="row mt-5 pt-3">
@@ -17,7 +17,7 @@
                     {% endfor%}
                     <form  method="post">
                         {%csrf_token%}
-                        {{form}}
+                         {{ form|crispy }}
                         <input type="submit" value="Connexion" class="btn btn-primary btn-block">
                     </form>
                     <hr>

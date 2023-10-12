@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'ressource.apps.RessourceConfig',
     'postsite',
+    'crispy_bootstrap4',
     'crispy_forms',
 ]
 
@@ -142,8 +143,8 @@ LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'abidusage@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'abidusage.from.email@gmail.com'
+EMAIL_HOST_PASSWORD = 'kdojhpzitvcigozh'
 
