@@ -1,6 +1,6 @@
 {% extends 'parties/base.html' %}
 {% load crispy_forms_filters %}
-{% block title %} d'inscription {% endblock %}
+{% block title %} Register {% endblock %}
 
 {% block contenu %}
 <div class="container">
@@ -10,9 +10,9 @@
                 <div class="card-body">
                     <h3 class="h-md-250 offset-md-4">Register</h3>
                     <form  method="post">
-                        {%csrf_token  %}
+                        {% csrf_token  %}
                         {{ form|crispy }}
-                        <input type="submit" value="Inscription" class="btn btn-primary btn-block">
+                        <input type="submit" value="Register" class="btn btn-primary btn-block">
                     </form>
                 </div>
             </div>

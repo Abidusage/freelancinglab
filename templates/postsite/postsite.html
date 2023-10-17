@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-2">
-                                <img class="img-thumbnail" src="{{posts.author.profile.photo.url}}" alt="img">
+                                <img class="img-thumbnail" style="border-radius: 100%;"  src="{{posts.author.profile.photo.url}}" alt="img">
                             </div>
                             <div class="col-md-8">
                                 <a href="{% url 'postsite_detail' posts.id %}">{{posts.title}}</a>

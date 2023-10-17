@@ -1,11 +1,10 @@
 {% extends 'parties/base.html' %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
 {% block title %}profile update{% endblock %}
 
 {% block contenu %}
     <div class="container">
         <div class="row my-4">
-
         </div>
         <div class="col-md-8 offset-md-3">
             <div class="col-md-8">
@@ -13,8 +12,8 @@
                 <hr>
                 <form  method="post" enctype="multipart/form-data" >
                     {% csrf_token %}
-                    {{user_form}}
-                    {{profile_form}}
+                    {{user_form|crispy}}
+                    {{profile_form|crispy}}
                     <input type="submit"  value="update" class="btn btn-primary btn-block">
                 </form>
             </div>

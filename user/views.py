@@ -22,6 +22,7 @@ def register(request):
 
 @login_required(login_url='login')
 def Profile(request):
+    messages.success(request, f'Online')
     return render(request, 'user/Profile.html')
 
 @login_required(login_url='login')

@@ -7,9 +7,16 @@
           <div class="col-md-4">
          
           </div>
- <!--  -->
+
           <div class="col-md-8">
             <div class="card shadow my-2">
+              {% for message in messages %}
+              {% if message %}
+              <div class="alert alert-primary{{message.tag}}">
+                  {{message}}
+              </div>
+              {% endif%}
+          {% endfor%}
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-4">
@@ -18,7 +25,6 @@
                   <div class="col-md-8">
                     <div class="col-md-8">
                         <span class="h4">Profile information </span><a class="btn btn-primary" href="{% url 'profile_update' %}">Edit</a>
-                        <!-- <hr> -->
                     </div>
                     <hr>
                     <div class="card-group">
@@ -74,7 +80,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     
                   </div>
                 </div>
