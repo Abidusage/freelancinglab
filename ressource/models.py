@@ -86,9 +86,7 @@ class Ressource(models.Model):
     langue = models.CharField(max_length=50, null=True)
     description = models.TextField(null=True)
     liens = models.CharField(max_length=300, null=True)
-    
     class Meta:
         verbose_name_plural = 'Ressource'
-
     def __str__(self):
         return f'{self.formation} {self.description}'
