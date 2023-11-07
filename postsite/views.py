@@ -20,7 +20,6 @@ def postsite(request):
         'posts': posts,
         'form': form
     }
-
     return render(request, 'postsite/postsite.html',context)
 @login_required(login_url='login')
 def postsite_detail(request, pk):

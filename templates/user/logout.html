@@ -1,5 +1,5 @@
 {% extends 'parties/base.html' %}
-{% block title %}deconnexion {% endblock %}
+{% block title %}Logout {% endblock %}
 
 {% block contenu %}
 <br>
@@ -7,12 +7,12 @@
         <div class="row mt-5">
             <div class="col-md-6 offset-md-3">
                 <div class="border bg-white p-3">
-                    <h3>deconnexion à la page</h3>
+                    <h3 class="offset-md-5">Logout</h3>
                     <hr>
                     <div class="alert alert-danger">
-                        <h4>déconnexion</h4>
+                        <h4 class="offset-md-5">Logout</h4>
                     </div>
-                    <a href="{% url 'login' %}" class="btn btn-primary">login</a>
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-block">login</a>
                 </div>
             </div>
 

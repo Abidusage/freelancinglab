@@ -1,6 +1,6 @@
 {% extends 'parties/base.html' %}
 {% block title %}ajouter {% endblock %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
 {% block contenu %}
     <div class="container">
         <div class="row mt-5 pt-3">
@@ -8,7 +8,7 @@
                 <div class="card my-3 shadow">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <img class="img-thumbnail" style="border-radius: 100%;"  src="{{posts.author.profile.photo.url}}" alt="img">
                             </div>
                             <div class="col-md-8">
@@ -17,21 +17,20 @@
                                 <p> {{posts.content}} </p>
                                 <p class="mt-2">
                                     <a class="text-bleu" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                       Comments :{{ post.comment_count}}
+                                       Comment : {{ posts.comment_count}}
                                     </a>
                                 </p>
                                 <div class="collapse" id="collapseExample">
                                    <div class="card card-body"style="height: 250px; overflow-y: scroll;">
-                                    {% for comments in post.comments %}
+                                    {% for comment in post.comments %}
                                     <p class="text-justify">
                                         {{comment.content}}
-                                        {{ post.comment_count}}
                                     </p>
                                     {%endfor%}
                                    </div>
                                 </div>
-                                <form method="post">
-                                    {% csrf_token%}
+                                <form method="POST">
+                                    {% csrf_token  %}
                                     {{c_form}}
                                     <input type="submit" value="comment" class="btn btn-primary btn-sm">
                                 </form>

@@ -20,11 +20,10 @@ class Postsite(models.Model):
 
     def __str__(self):
         return self.title
-
-class Comments(models.Model):
+class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    posts = models.ForeignKey(Postsite, on_delete=models.CASCADE)
+    Postsite = models.ForeignKey(Postsite, on_delete=models.CASCADE)
     content = models.CharField(max_length=200)
 
-    def __str__(self):
+    def str (self):
         return self.content

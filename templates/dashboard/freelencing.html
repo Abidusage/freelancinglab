@@ -2,14 +2,15 @@
 {% block title %}freelancers {% endblock %}
 {% block contenu %}
 <div class="container mt-5">
-  <div class="row mb-3">
+  <div class="row mb-4">
     {% for worker in workers %}
-    <div class="col-md-3 mt-5 ml-3">
+    <div class="col-md-4 mt-3">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col flex-column position-static">
+        <div class="col flex-column position-static md-4">
           <div class="col-md-4">
             <img style="border-radius: 100%;" class="img-thumbnail h-md-250 offset-md-11 mt-3 " src="{{ worker.profile.photo.url }}" alt="ima">
           </div>
+        
           <h4 class="d-inline-block mb-2 text-success">{{worker.username}} </h4>
           <h6 class="mb-0">{{ worker.profile.technologie}}</h6>
           <hr>

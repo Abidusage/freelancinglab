@@ -1,5 +1,5 @@
 from django import forms
-from .models import Postsite, Comments
+from .models import Postsite, Comment
 
 class PostsiteForm(forms.ModelForm):
     class Meta:
@@ -14,5 +14,5 @@ class PostsiteUpdateForm(forms.ModelForm):
 class ComentForm(forms.ModelForm):
     content = forms.CharField(label='',widget=forms.TextInput(attrs={'placeholder': 'add a comment'}))
     class Meta:
-        model = Comments
+        model = Comment
         fields = ('content',)
