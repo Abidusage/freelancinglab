@@ -11,7 +11,7 @@ class PostsiteUpdateForm(forms.ModelForm):
         model = Postsite
         fields = ('title', 'content')
 
-class ComentForm(forms.ModelForm):
+class CommentForm(forms.ModelForm):
     content = forms.CharField(label='',widget=forms.TextInput(attrs={'placeholder': 'add a comment'}))
     class Meta:
         model = Comment

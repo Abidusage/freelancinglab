@@ -23,7 +23,7 @@ class Postsite(models.Model):
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     Postsite = models.ForeignKey(Postsite, on_delete=models.CASCADE)
-    content = models.CharField(max_length=200)
+    content = models.CharField(max_length=50)
 
     def str (self):
         return self.content

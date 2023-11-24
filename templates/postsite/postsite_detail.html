@@ -22,11 +22,11 @@
                                 </p>
                                 <div class="collapse" id="collapseExample">
                                    <div class="card card-body"style="height: 250px; overflow-y: scroll;">
-                                    {% for comment in post.comments %}
+                                    {% for comment in posts.comments %}
                                     <p class="text-justify">
-                                        {{comment.content}}
+                                       {{comment.content}}
                                     </p>
-                                    {%endfor%}
+                                    {% endfor %}
                                    </div>
                                 </div>
                                 <form method="POST">

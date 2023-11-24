@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('dashboard.urls')),
+    path('', include('user.urls')),
     path('ressource/', include('ressource.urls')),
     path('postsite', include('postsite.urls')),
     path('register/', user_view.register, name='register'),
@@ -36,4 +36,7 @@ urlpatterns = [
     path('password_reset_confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='user/password_reset_confirm.html'),name='password_reset_confirm'),
     path('password_resert_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='user/password_reset_complete.html'),name="password_resert_complete")
 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -4,7 +4,23 @@ from .forms import CreateUserForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.db import models
 from django.contrib import messages
+from django.contrib.auth.models import User
+from .import views
+from django.contrib.auth import views as auth_view
 # Create your views here.
+def freelencing(request):
+    workers = User.objects.all()
+    context ={
+        'workers': workers
+    }
+    return render(request, 'user/freelencing.html', context)
+    
+def voir_plus(request, pk):
+    workers = User.objects.get(id=pk)
+    context = {
+        'workers': workers,
+    }
+    return render(request, 'user/voir_plus.html', context)
 def register(request):
     if request.method == 'POST':
         form =  CreateUserForm(request.POST)

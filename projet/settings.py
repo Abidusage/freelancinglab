@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dashboard.apps.DashboardConfig',
     'user.apps.UserConfig',
     'ressource.apps.RessourceConfig',
     'postsite',
@@ -131,6 +130,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = (BASE_DIR/ 'media')
+STATIC_ROOT=(BASE_DIR/'asset')
 
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
@@ -144,4 +144,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'labfreelance08@gmail.com'
-EMAIL_HOST_PASSWORD = 'Toujours#toucher*'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Postsite
 from django.contrib.auth.decorators import login_required
-from .forms import PostsiteForm, PostsiteUpdateForm, ComentForm
+from .forms import PostsiteForm, PostsiteUpdateForm, CommentForm
 # Create your views here.
 
 def postsite(request):
@@ -25,7 +25,7 @@ def postsite(request):
 def postsite_detail(request, pk):
     posts = Postsite.objects.get(id=pk)
     if request.method == 'POST':
-        c_form = ComentForm(request.POST)
+        c_form = CommentForm(request.POST)
         if c_form.is_valid():
             instance = c_form.save(commit=False)
             instance.user = request.user
@@ -33,7 +33,7 @@ def postsite_detail(request, pk):
             instance.save()
             return redirect('postsite_detail', pk=posts.id)
     else:
-        c_form = ComentForm()
+        c_form = CommentForm()
     context = {
         'posts': posts,
         'c_form': c_form,
