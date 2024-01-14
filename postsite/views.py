@@ -30,7 +30,7 @@ def postsite_detail(request, pk):
             instance = c_form.save(commit=False)
             instance.user = request.user
             instance.posts = posts
-            instance.save()
+            bginstance.save()
             return redirect('postsite_detail', pk=posts.id)
     else:
         c_form = CommentForm()
